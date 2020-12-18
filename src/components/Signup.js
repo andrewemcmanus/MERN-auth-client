@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-import REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+// import REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+const { REACT_APP_SERVER_URL } = require('../utils/keys')
 // fix this like in backend if necessary (using keys.js)
 
 const Signup = () => {
@@ -33,7 +34,7 @@ const Signup = () => {
       axios.post(`${REACT_APP_SERVER_URL}/controllers/users/register`, newUser).then(response => {
         console.log(response);
         setRedirect(true);
-      }).catch(error = {
+      }).catch(error => {
         console.log(error);
       })
     }

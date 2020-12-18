@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
 import { Redirect } from 'react-router-dom';
-import REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+// import REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+const { REACT_APP_SERVER_URL } = require('../utils/keys')
 // fix this like in backend if necessary (using keys.js)
 
 const Login = (props) => {
@@ -20,7 +21,7 @@ const Login = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = { email, password };
-    axios.post(`${REACT_APP_SERVER_URL}/controllers/users/login`, userData).then(response = {
+    axios.post(`${REACT_APP_SERVER_URL}/controllers/users/login`, userData).then(response => {
       const { token } = response.data;
       // save token to localStorage:
       localStorage.setItem('jwtToken', token);

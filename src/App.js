@@ -1,5 +1,5 @@
 // Imports
-require('dotenv').config();
+// require('dotenv').config();
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
@@ -12,8 +12,8 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Profile from './components/Profile'
 import Login from './components/Login';
-import Singup from './components/Signup'
-import About from './components/about'
+import Signup from './components/Signup'
+import About from './components/About'
 // import { Component } from 'react';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
