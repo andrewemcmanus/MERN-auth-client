@@ -49,6 +49,7 @@ const Login = (props) => {
               <label htmlFor="password">password</label>
               <input type="password" name="password" value={password} onchange={handlePassword} className="form-control" />
             </div>
+            <button type="submit" className="btn btn-primary float-right">Submit</button>
           </form>
         </div>
       </div>
