@@ -1,4 +1,5 @@
 // Imports
+require('dotenv').config();
 import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect, NavLink } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
