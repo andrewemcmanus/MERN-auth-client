@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navlink, Link } from 'react-router-dom';
 
-const NavBar = (props) =< {
+const NavBar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container">
@@ -18,6 +18,28 @@ const NavBar = (props) =< {
               <NavLink className="nav-link" exact to="/about">About</NavLink>
             </li>
           </ul>
+          // TERNARY OPERATOR:
+          // if logged in: show profile, else show signup
+          {
+            props.isAuth ?
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/profile">Profile</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <span onClick={props.handleLogout} className="nav-link logout-link">Logout</span>
+                  </li>
+                </ul>
+                :
+                <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/signup">Create Account</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" to="/login">About</NavLink>
+                  </li>
+                </ul>
+          }
         </div>
       </div>
     </nav>
