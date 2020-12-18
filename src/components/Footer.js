@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () =< {
+const Footer = () => {
   return (
     // See Bootstrap CSS for this:
     <footer className="footer bg-dark">

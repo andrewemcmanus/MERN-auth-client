@@ -9,6 +9,11 @@ import './App.css';
 // Components
 import Welcome from './components/Welcome';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+import Profile from './components/Profile'
+import Login from './components/Login';
+import Singup from './components/Signup'
+import About from './components/about'
 // import { Component } from 'react';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -53,7 +58,19 @@ const handleLogout = () => {
   return (
     <div className="App">
       <NavBar handleLogout={handleLogout} isAuth={isAuthenticated} />
-      // add <Welcome />
+      <div className="container mt-5">
+        <Switch>
+          <Route path="/signup" component={Signup}/>
+          <Route
+            path="/login"
+            render={ (props) => <Login { ...props } nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/> }
+            />
+          <Route path='/about' component={About} />
+          <PrivateRoute path='/profile' component={Profile} user={currentUser} />
+          <Route exact path="/" component={Welcome} />
+        </Switch>
+      </div>
+      <Footer />
     </div>
   );
 }
